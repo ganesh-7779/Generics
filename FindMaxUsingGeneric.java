@@ -1,8 +1,14 @@
 package com.brigdelabz;
 
-public class FindMaxUsingGeneric {
+public class  FindMaxUsingGeneric  <T extends Comparable<T>>{
+T num1,num2,num3;
 
-	public <T extends Comparable<T>> T findMax(T num1, T num2, T num3) {
+public FindMaxUsingGeneric (T num1,T num2,T num3){
+	this.num1=num1;
+	this.num2=num2;
+	this.num3=num3;
+}
+	public static <T extends Comparable<T>> T findMax(T num1,T num2,T num3) {
 		T maxOfDataType = num1;
 		if (num1.compareTo(maxOfDataType) > 0) {
 			maxOfDataType = num1;
@@ -19,12 +25,11 @@ public class FindMaxUsingGeneric {
 	public static void main(String[] args) {
 
 		System.out.println("Solving Problem by using Generic");
-		FindMaxUsingGeneric obj = new FindMaxUsingGeneric();
-		int maxInteger = obj.findMax(12, 30, 25);
+		int maxInteger = findMax(12,30,15);
 		System.out.println(maxInteger);
-		Float maxFloat = obj.findMax(12.12f, 30.9f, 25.8f);
+		Float maxFloat = findMax(12.12f, 30.9f, 25.8f);
 		System.out.println(maxFloat);
-		String maxString = obj.findMax("Apple","Peach","Banana");
+		String maxString = findMax("Apple","Peach","Banana");
 		System.out.println(maxString);
 	}
 
