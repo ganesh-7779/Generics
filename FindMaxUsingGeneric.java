@@ -29,7 +29,19 @@ public class FindMaxUsingGeneric {
 		}
 		return maxOfFloat;
 	}
-
+	public String findMaxString(String num1, String num2, String num3) {
+		String maxOfString = num1;
+		if (num1.compareTo(maxOfString) > 0) {
+			maxOfString = num1;
+		}
+		if (num2.compareTo(maxOfString) > 0) {
+			maxOfString = num2;
+		}
+		if (num3.compareTo(maxOfString) > 0) {
+			maxOfString = num3;
+		}
+		return maxOfString;
+	}
 	public static void main(String[] args) {
 
 		System.out.println("Solving Problem by using Generic");
@@ -38,6 +50,8 @@ public class FindMaxUsingGeneric {
 		System.out.println(maxInteger);
 		Float maxFloat = obj.findMaxFloat(12.12f, 30.9f, 25.8f);
 		System.out.println(maxFloat);
+		String maxString = obj.findMaxString("Apple","Peach","Banana");
+		System.out.println(maxString);
 	}
 
 }
