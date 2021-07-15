@@ -9,7 +9,7 @@ package com.brigdelabz;
 import java.util.Arrays;
 
 public class FindMaxUsingGeneric<T extends Comparable<T>> {
-	T[] element;
+  T[] element;
 
 	/**
 	 * @param element is arrays list of different data type
@@ -18,7 +18,7 @@ public class FindMaxUsingGeneric<T extends Comparable<T>> {
 		this.element = element;
 
 	}
-
+	
 	/**
 	 * @param <T>
 	 * @param element is argument of generic method which contain arrays list.
@@ -26,12 +26,23 @@ public class FindMaxUsingGeneric<T extends Comparable<T>> {
 	 */
 	public static <T extends Comparable<T>> T maxInArrays(T[] element) {
 		Arrays.sort(element);
-		System.out.println("varible after sorting: " + Arrays.toString(element));
+		System.out.println("Array list elements after sorting: " + Arrays.toString(element));
 		int lenght = element.length;
 		T max = element[lenght - 1];
 		return max;
 	}
-
+	
+	/**
+	 * @param <T>
+	 * @param elements arrays list
+	 * @param max element of arrays list
+	 */
+	public static <T> void printMax(T[] elements, T max) {
+		for (T element : elements) {
+			System.out.println(element);
+		}
+		System.out.printf("%d of %d is: ", max, elements);
+	}
 	/**
 	 * @arraysOfDataType() is a method for arrays list of different data type which
 	 *                     pass as a argument to the @maxInArrays Method
@@ -46,9 +57,8 @@ public class FindMaxUsingGeneric<T extends Comparable<T>> {
 
 		String[] stringMax = { "Peach", "Apple", "Banana", "Mango", "Orange" };
 		System.out.println("Maximum Of String : " + maxInArrays(stringMax));
-
 	}
-
+	
 	/**
 	 * @param Main method Of Class
 	 */
