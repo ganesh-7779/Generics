@@ -1,36 +1,58 @@
+/**
+ * Purpose : Learning Use Of Generic  
+ * @author Ganesh Gavhad
+ * @version 1.0
+ * @param <T>
+ */
 package com.brigdelabz;
 
-public class  FindMaxUsingGeneric  <T extends Comparable<T>>{
-T num1,num2,num3;
+import java.util.Arrays;
 
-public FindMaxUsingGeneric (T num1,T num2,T num3){
-	this.num1=num1;
-	this.num2=num2;
-	this.num3=num3;
-}
-	public static <T extends Comparable<T>> T findMax(T num1,T num2,T num3) {
-		T maxOfDataType = num1;
-		if (num1.compareTo(maxOfDataType) > 0) {
-			maxOfDataType = num1;
-		}
-		if (num2.compareTo(maxOfDataType) > 0) {
-			maxOfDataType = num2;
-		}
-		if (num3.compareTo(maxOfDataType) > 0) {
-			maxOfDataType = num3;
-		}
-		return maxOfDataType;
+public class FindMaxUsingGeneric<T extends Comparable<T>> {
+	T[] element;
+
+	/**
+	 * @param element is arrays list of different data type
+	 */
+	public FindMaxUsingGeneric(T[] element) {
+		this.element = element;
+
 	}
 
+	/**
+	 * @param <T>
+	 * @param element is argument of generic method which contain arrays list.
+	 * @return max Of arrays list
+	 */
+	public static <T extends Comparable<T>> T maxInArrays(T[] element) {
+		Arrays.sort(element);
+		System.out.println("varible after sorting: " + Arrays.toString(element));
+		int lenght = element.length;
+		T max = element[lenght - 1];
+		return max;
+	}
+
+	/**
+	 * @arraysOfDataType() is a method for arrays list of different data type which
+	 *                     pass as a argument to the @maxInArrays Method
+	 */
+	public static void arraysOfDataType() {
+
+		Integer[] intMax = { 4, 82, 9, 72, 4, 12, 98, 58 };
+		System.out.println("Maximum Of Integer : " + maxInArrays(intMax));
+
+		Float[] floatMax = { 4.6f, 85.8f, 72.8f, 30.2f, 9.8f };
+		System.out.println("Maximum Of Float : " + maxInArrays(floatMax));
+
+		String[] stringMax = { "Peach", "Apple", "Banana", "Mango", "Orange" };
+		System.out.println("Maximum Of String : " + maxInArrays(stringMax));
+
+	}
+
+	/**
+	 * @param Main method Of Class
+	 */
 	public static void main(String[] args) {
-
-		System.out.println("Solving Problem by using Generic");
-		int maxInteger = findMax(12,30,15);
-		System.out.println(maxInteger);
-		Float maxFloat = findMax(12.12f, 30.9f, 25.8f);
-		System.out.println(maxFloat);
-		String maxString = findMax("Apple","Peach","Banana");
-		System.out.println(maxString);
+		arraysOfDataType();
 	}
-
 }
